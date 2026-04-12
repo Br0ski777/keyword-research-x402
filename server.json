@@ -1,0 +1,18 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Br0ski777/keyword-research",
+  "title": "Keyword Research API",
+  "description": "SEO keyword research with Google Suggest, intent scoring, long-tail discovery. x402.",
+  "version": "1.0.0",
+  "websiteUrl": "https://github.com/Br0ski777/keyword-research-x402",
+  "repository": {
+    "url": "https://github.com/Br0ski777/keyword-research-x402",
+    "source": "github"
+  },
+  "remotes": [
+    {
+      "type": "sse",
+      "url": "https://keyword-research-x402-production.up.railway.app/mcp"
+    }
+  ]
+}
