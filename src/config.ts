@@ -32,6 +32,45 @@ Do NOT use for page SEO audit -- use seo_audit_page instead. Do NOT use for cont
         },
         required: ["query"],
       },
+      outputSchema: {
+          "type": "object",
+          "properties": {
+            "query": {
+              "type": "string",
+              "description": "Search query used"
+            },
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "keyword": {
+                    "type": "string"
+                  },
+                  "volume": {
+                    "type": "number"
+                  },
+                  "difficulty": {
+                    "type": "number"
+                  },
+                  "cpc": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            "totalKeywords": {
+              "type": "number"
+            },
+            "timestamp": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "query",
+            "keywords"
+          ]
+        },
     },
   ],
 };
