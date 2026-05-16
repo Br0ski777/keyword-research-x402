@@ -12,7 +12,7 @@
   "remotes": [
     {
       "type": "sse",
-      "url": "https://keyword-research-x402-production.up.railway.app/mcp"
+      "url": "https://keyword-research.api.klymax402.com/mcp"
     }
   ]
 }
