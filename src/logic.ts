@@ -152,9 +152,9 @@ async function researchKeywords(query: string): Promise<{
 // --------------- Routes ---------------
 
 export function registerRoutes(app: Hono) {
-  app.get("/api/keywords", async (c) => {
+  async function handleKeywords(c: any, params: { query?: string }) {
     await tryRequirePayment(0.01);
-    const query = c.req.query("query");
+    const query = params.query;
 
     if (!query || query.trim().length === 0) {
       return c.json({
@@ -173,5 +173,18 @@ export function registerRoutes(app: Hono) {
     } catch (err: any) {
       return c.json({ error: "Keyword research failed", details: err.message }, 502);
     }
+  }
+
+  app.get("/api/keywords", async (c) => {
+    return handleKeywords(c, { query: c.req.query("query") });
+  });
+
+  // POST mirror of the GET route above -- Bazaar (CDP) only reliably indexes
+  // POST payments with valid payloads (~82% conversion vs ~14% for GET-only
+  // resources, confirmed empirically). Same params, same logic, just body
+  // instead of query string.
+  app.post("/api/keywords", async (c) => {
+    const body = await c.req.json().catch(() => ({}) as any);
+    return handleKeywords(c, { query: body.query });
   });
 }
