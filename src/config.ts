@@ -9,7 +9,7 @@ export const API_CONFIG: ApiConfig = {
     {
       method: "GET",
       path: "/api/keywords",
-      price: "$0.01",
+      price: "$0.02",
       description: "Research keywords with Google autocomplete suggestions, related queries, and intent classification",
       toolName: "seo_research_keywords",
       toolDescription:
@@ -75,7 +75,7 @@ Do NOT use for page SEO audit -- use seo_audit_page instead. Do NOT use for cont
     {
       method: "POST",
       path: "/api/keywords",
-      price: "$0.01",
+      price: "$0.02",
       description: "Research keywords with Google autocomplete suggestions, related queries, and intent classification (POST variant)",
       toolName: "seo_research_keywords",
       toolDescription:
